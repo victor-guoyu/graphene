@@ -3,17 +3,13 @@ class Node:
         self.size = size
         self.color = color
         self.label = label
-        self._edges = []
 
-    @property
-    def edges(self):
-        return self._edges
+    def __hash__(self):
+        return hash((self.size, self.color, self.label))
 
-    def add_edge(self, edge):
-        self._edges.append(edge)
+    def __eq__(self, other_node):
+        return (self.size, self.color, self.label) == \
+            (other_node.size, other_node.color, other_node.label)
 
-    def remove_edge(self, edge):
-        self._edges.remove(edge)
-
-    def has_edge(self, node) -> bool:
-        return node in self._edges
+    def __repr__(self):
+        return f'[Node]: label: {self.label}, color: {self.color}, size: {self.size}'
