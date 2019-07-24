@@ -2,7 +2,7 @@ from exceptions import InvalidEdgeError, RedundantEdge
 
 
 class Graph:
-    def __init__(self, scale: int):
+    def __init__(self, scale: int = 1):
         self.scale = scale
         self._graph = {}
         self._nodes = []
@@ -29,4 +29,3 @@ class Graph:
             raise RedundantEdge
 
         self._graph[reference_node][treatment_node] = edge
-

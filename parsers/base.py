@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from enum import Enum, auto, unique
 from exceptions import ParserNotFound
 
+EDGE_SHEET = 'Edges'
+NODE_SHEET = 'Nodes'
+
 
 @unique
 class ParserType(Enum):
@@ -12,6 +15,9 @@ class ParserType(Enum):
 class Parser(ABC):
     type = None
 
+    def __init__(self, file_path):
+        self.file_path = file_path
+
     @abstractmethod
     def parse_nodes(self):
         raise NotImplementedError
@@ -19,16 +25,6 @@ class Parser(ABC):
     @abstractmethod
     def parse_edges(self):
         raise NotImplementedError
-
-
-class ExcelParser(Parser):
-    type = ParserType.EXCEL
-
-    def parse_nodes(self):
-        pass
-
-    def parse_edges(self):
-        pass
 
 
 class ParserFactory:
