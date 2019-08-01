@@ -33,9 +33,9 @@ class Parser(ABC):
 
 class ParserFactory:
     @staticmethod
-    def get_parser(type: ParserType) -> Parser:
+    def get_parser(type: ParserType, template_path: str) -> Parser:
         for each_parser in Parser.__subclasses__():
             if each_parser.type == type:
-                return each_parser()
+                return each_parser(template_path)
 
         raise ParserNotFound

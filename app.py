@@ -2,9 +2,9 @@ from models.graph import Graph
 
 
 class Graphene:
-    def __init__(self, parser):
-        self.template_path = template_path
+    def __init__(self, parser, renderer):
         self.parser = parser
+        self.renderer = renderer
         self._graph = Graph()
 
     def load_graph(self):
@@ -16,3 +16,6 @@ class Graphene:
 
         # destroy redudant memory copy of the data
         self.parser = None
+
+    def render(self):
+        self.render.draw(self._graph)
