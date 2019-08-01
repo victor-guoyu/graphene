@@ -1,10 +1,10 @@
 class Edge:
-    def __init__(self, reference_node, treatment_node, weight, color, text):
-        self.reference_node = reference_node
-        self.treatment_node = treatment_node
+    def __init__(self, reference_node_name, treatment_node_name, weight, color, label):
+        self.reference_node_name = reference_node_name
+        self.treatment_node_name = treatment_node_name
         self.weight = weight
         self.color = color
-        self.text = text
+        self.label = label
 
     def __repr__(self):
-        return f'[Edge]: ref: {self.reference_node}, treatment: {self.treatment_node}, text: {self.text}, color: {self.color}, weight: {self.weight}'
+        return f'[Edge]: ref: {self.reference_node_name}, treatment: {self.treatment_node_name}, label: {self.label}, color: {self.color}, weight: {self.weight}'

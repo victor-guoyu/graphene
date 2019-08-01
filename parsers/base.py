@@ -19,11 +19,15 @@ class Parser(ABC):
         self.file_path = file_path
 
     @abstractmethod
-    def parse_nodes(self):
+    def _parse_nodes(self):
         raise NotImplementedError
 
     @abstractmethod
-    def parse_edges(self):
+    def _parse_edges(self):
+        raise NotImplementedError
+
+    @abstractmethod
+    def parse(self):
         raise NotImplementedError
 
 

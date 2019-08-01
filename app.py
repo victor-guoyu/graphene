@@ -7,10 +7,12 @@ class Graphene:
         self.parser = parser
         self._graph = Graph()
 
-    def populate_nodes(self):
-        for node in self.parser.parse_nodes():
-            self._graph.insert_node(node)
+    def load_graph(self):
+        self.parser.parse()
+        nodes = self.parser.nodes
+        self._graph.insert_nodes(nodes)
+        edges = self.parser.edges
+        self._graph.insert_edge(edges)
 
-    def populate_edges(self):
-        for edge in self.parser.parse_edges():
-            self._graph.insert_edge(edge)
+        # destroy redudant memory copy of the data
+        self.parser = None

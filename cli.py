@@ -5,8 +5,7 @@ from app import Graphene
 def main():
     parser = ParserFactory.get_parser(ParserType.EXCEL)
     graphene = Graphene(parser=parser)
-    graphene.populate_nodes()
-    graphene.populate_edges()
+    graphene.load_graph()
 
 
 if __name__ == "__main__":
