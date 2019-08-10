@@ -1,3 +1,5 @@
+import networkx as nx
+import matplotlib.pyplot as plt
 from renderer.base import BaseRenderer
 
 
@@ -6,4 +8,7 @@ class PngRender(BaseRenderer):
         self.output_path = output_path
 
     def draw(self, graph):
-        pass
+        import ipdb
+        ipdb.set_trace()
+        nx.draw(graph.nx_graph)
+        plt.savefig(self.output_path)

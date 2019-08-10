@@ -12,10 +12,10 @@ class Graphene:
         nodes = self.parser.nodes
         self._graph.insert_nodes(nodes)
         edges = self.parser.edges
-        self._graph.insert_edge(edges)
+        self._graph.insert_edges(edges)
 
         # destroy redudant memory copy of the data
         self.parser = None
 
     def render(self):
-        self.render.draw(self._graph)
+        self.renderer.draw(self._graph)

@@ -3,9 +3,9 @@ from renderer.png import PngRender
 from app import Graphene
 
 
-def main(template_path, output_path):
+def main(template_path='./Template.xlsx', output_path='./test.png'):
     parser = ParserFactory.get_parser(
-        type=ParserType.EXCEL,
+        parser_type=ParserType.EXCEL,
         template_path=template_path
     )
     renderer = PngRender(output_path)
