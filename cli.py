@@ -3,7 +3,7 @@ from renderer.png import PngRender
 from app import Graphene
 
 
-def main(template_path='./Template.xlsx', output_path='./test.png'):
+def main(template_path='./Template.xlsx', output_path='./dist/test.png'):
     parser = ParserFactory.get_parser(
         parser_type=ParserType.EXCEL,
         template_path=template_path
