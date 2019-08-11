@@ -1,6 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from renderer.base import BaseRenderer
+
+
+class BaseRenderer:
+    pass
 
 
 class PngRender(BaseRenderer):

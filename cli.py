@@ -1,5 +1,5 @@
 from parsers import ParserFactory, ParserType
-from renderer.png import PngRender
+from renderer import PngRender
 from app import Graphene
 
 
