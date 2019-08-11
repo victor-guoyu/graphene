@@ -8,12 +8,6 @@ class Graph:
         self.nx_graph = nx.Graph()
         self._nodes_lookup_by_name = {}
 
-    # {
-    #     node_1_name: {
-    #         node_2_name: edge
-    #     }
-    # }
-
     def insert_nodes(self, nodes):
         for each_node in nodes:
             if not self._nodes_lookup_by_name.get(each_node.label):
