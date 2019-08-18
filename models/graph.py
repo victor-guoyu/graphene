@@ -59,5 +59,5 @@ class Graph:
 
         sizes = []
         for (_, size) in self.nx_graph.nodes.data('size'):
-            sizes.append(math.ceil(size / average) * 50)
+            sizes.append(math.ceil(size / average) * 100)
         return sizes

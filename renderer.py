@@ -25,7 +25,7 @@ class PngRender(BaseRenderer):
         nx.draw(nx_graph, pos=pos, node_color=node_colors, node_size=node_sizes)
         nx.draw_networkx_edge_labels(
             nx_graph, pos, edge_labels=edge_labels,
-            label_pos=0.3, font_size=3, alpha=0.8
+            label_pos=0.4, font_size=6, alpha=0.8
         )
         plt.legend(
             handles=node_legends,
