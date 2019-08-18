@@ -30,4 +30,8 @@ class Graph:
             if self.nx_graph.has_edge(reference_node_name, treatment_node_name):
                 raise RedundantEdge
 
-            self.nx_graph.add_edge(reference_node_name, treatment_node_name)
+            self.nx_graph.add_edge(
+                reference_node_name,
+                treatment_node_name,
+                label=each_edge.label
+            )

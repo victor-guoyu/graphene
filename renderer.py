@@ -11,5 +11,13 @@ class PngRender(BaseRenderer):
         self.output_path = output_path
 
     def draw(self, graph):
-        nx.draw(graph.nx_graph)
-        plt.savefig(self.output_path)
+        nx_graph = graph.nx_graph
+        pos = nx.fruchterman_reingold_layout(nx_graph)
+
+        edge_labels = {
+            (reference, treatment): label for (reference, treatment, label) in nx_graph.edges.data('label')
+        }
+        nx.draw(nx_graph, pos=pos, node_size=40)
+        nx.draw_networkx_edge_labels(
+            nx_graph, pos, edge_labels=edge_labels, font_size=3, alpha=0.8)
+        plt.savefig(self.output_path, dpi=1024)
