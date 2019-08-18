@@ -12,7 +12,11 @@ class Graph:
         for each_node in nodes:
             if not self._nodes_lookup_by_name.get(each_node.label):
                 self._nodes_lookup_by_name[each_node.label] = each_node
-                self.nx_graph.add_node(each_node.label, color=each_node.color)
+                self.nx_graph.add_node(
+                    each_node.label,
+                    color=each_node.color,
+                    label=each_node.label
+                )
             else:
                 raise DuplicateNodeError(
                     f'Node: {each_node.label} is already defined')
