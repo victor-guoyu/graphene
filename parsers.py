@@ -1,6 +1,7 @@
 import xlrd
 from abc import ABC, abstractmethod
 from enum import Enum, auto, unique
+from utils import random_colors_generator
 from models.node import Node
 from models.edge import Edge
 from exceptions import ParserNotFound, DuplicateNodeError, InvalidEdgeError
@@ -54,7 +55,7 @@ class ExcelParser(Parser):
             try:
                 color = each_row[2].value
             except IndexError:
-                color = None
+                color = random_colors_generator()
 
             node = Node(label=label, size=size, color=color)
             self.nodes.append(node)

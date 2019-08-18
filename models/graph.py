@@ -12,7 +12,7 @@ class Graph:
         for each_node in nodes:
             if not self._nodes_lookup_by_name.get(each_node.label):
                 self._nodes_lookup_by_name[each_node.label] = each_node
-                self.nx_graph.add_node(each_node.label)
+                self.nx_graph.add_node(each_node.label, color=each_node.color)
             else:
                 raise DuplicateNodeError(
                     f'Node: {each_node.label} is already defined')
@@ -40,3 +40,6 @@ class Graph:
         return {
             (reference, treatment): label for (reference, treatment, label) in self.nx_graph.edges.data('label')
         }
+
+    def get_node_colors(self):
+        return [color for (_, color) in self.nx_graph.nodes.data('color')]
