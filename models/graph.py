@@ -35,3 +35,8 @@ class Graph:
                 treatment_node_name,
                 label=each_edge.label
             )
+
+    def get_edge_labels(self):
+        return {
+            (reference, treatment): label for (reference, treatment, label) in self.nx_graph.edges.data('label')
+        }
