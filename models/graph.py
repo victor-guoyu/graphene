@@ -1,3 +1,4 @@
+import math
 import networkx as nx
 from exceptions import InvalidEdgeError, RedundantEdge, DuplicateNodeError
 
@@ -15,7 +16,8 @@ class Graph:
                 self.nx_graph.add_node(
                     each_node.label,
                     color=each_node.color,
-                    label=each_node.label
+                    label=each_node.label,
+                    size=each_node.size
                 )
             else:
                 raise DuplicateNodeError(
@@ -47,3 +49,15 @@ class Graph:
 
     def get_node_colors(self):
         return [color for (_, color) in self.nx_graph.nodes.data('color')]
+
+    def get_node_sizes(self):
+        total_size = 0
+        for (_, size) in self.nx_graph.nodes.data('size'):
+            total_size += size
+
+        average = math.ceil(total_size / self.nx_graph.number_of_nodes())
+
+        sizes = []
+        for (_, size) in self.nx_graph.nodes.data('size'):
+            sizes.append(math.ceil(size / average) * 50)
+        return sizes
