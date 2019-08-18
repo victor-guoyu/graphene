@@ -16,5 +16,7 @@ class PngRender(BaseRenderer):
         pos = nx.circular_layout(nx_graph)
         nx.draw(nx_graph, pos=pos, node_size=40)
         nx.draw_networkx_edge_labels(
-            nx_graph, pos, edge_labels=edge_labels, label_pos=0.3, font_size=3, alpha=0.8)
+            nx_graph, pos, edge_labels=edge_labels,
+            label_pos=0.3, font_size=3, alpha=0.8
+        )
         plt.savefig(self.output_path, dpi=1024)
